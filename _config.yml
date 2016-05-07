@@ -7,13 +7,15 @@
 
 # Site settings
 title: Kostis Tsaprailis
+tagline: Blog
 email: kostis.tsaprailis@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Software Engineer
+  Electrical & Computer Engineer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: ktsaprailis
 github_username:  kostistsaprailis
+linkedin_username: konstantinostsaprailis
 
 # Build settings
 markdown: kramdown
