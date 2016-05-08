@@ -167,6 +167,16 @@ a.sidebar-nav-item:focus {
 }
 
 
+/*
+ * Custom css by kostistsaprailis
+ */
+.social-icons {
+  margin: auto;
+  width: 60%;
+  border: 3px;
+  padding: 10px;
+}
+
 
 /*
  * Themes
