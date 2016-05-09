@@ -79,12 +79,13 @@ tsaprailis.com) to the internal URL that Github knows kostistsaprailis.github.io
 There are currently far easier ways (Wordpress, Medium etc) to start a blog,
 why go through all the hassle to make it from scratch?
 
-Well the first thing that drew me to Jekyll was that as a developer I'm always
+Well, the thing that drew me to Jekyll is that as a developer I'm always
 enjoying more building stuff myself. Having exposure to the underlying code is
 always a great strength that allows you to configure (and also break) a project.
 
-So the fact still remains, take something apart, break it and then try to make it
-work. It will always down a path with many things to explore, and putting it back
+So take something apart, break it and then try to make it work. You will always be
+more motivated to make something work again and it will usually take you down a curious
+rabbit hole.
 
 
 [githubpages-url]: https://pages.github.com/
