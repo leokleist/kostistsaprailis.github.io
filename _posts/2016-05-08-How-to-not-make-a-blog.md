@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to not make a blog."
-date:   2016-05-08 13:33:42 +0300
+date:   2016-05-09 19:33:42 +0300
 ---
 
 ### Hello there!
