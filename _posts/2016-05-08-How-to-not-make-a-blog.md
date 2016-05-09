@@ -23,7 +23,7 @@ looks nice, especially if you're a developer like me who has no idea how to
 design anything better than a napkin.
 
 So what does anyone do when need something? Ask <del>our Supreme Overlord</del> Google
-for a nice theme. The I found that I really liked was [Hyde][hyde-url]. It's a
+for a nice theme. The one I found that I really liked was [Hyde][hyde-url]. It's a
 two column theme that was pretty much what I was looking for.
 
 I just went ahead, and put everything together, trying to make it work. Usually
