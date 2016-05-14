@@ -22,8 +22,5 @@ gems: [jekyll-paginate]
 paginate:         5
 paginate_path: "page:num"
 
-# Dependencies
-markdown:         redcarpet
-
 # Permalinks
 permalink:        pretty
