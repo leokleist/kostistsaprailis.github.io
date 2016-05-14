@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to not make a blog."
+title:  "How to not make a blog, or how I stopped worrying and love breaking stuff."
 date:   2016-05-09 19:33:42 +0300
 ---
 
@@ -10,12 +10,12 @@ These are my thoughts on trying to build a blog with the latest "cool" thing cal
 GithubPages + Jekyll.
 
 If you have never heard about it before, it's basically using "free" web hosting on
-[GithubPages][githubpages-url] plus a statis website generator engine called
+[GithubPages][githubpages-url] plus a static website generator engine called
 [Jekyll][jekyll-url].
 
 There are many great tutorials to get you started, one being an official
 [Jekyll Guide][jekyllgithub-url] which gives an overview of how to integrate
-the two and a second one, the more [analytical tutorial][jonathanmacglone-url] by
+the two and a second one, the more [analytical][jonathanmacglone-url] by
 Jonathan McGlone.
 
 However having Jekyll on its own does not really help with making a blog that
@@ -31,7 +31,7 @@ that's not the proper way to do something in a professional setting, however whe
 trying out a new project I think this is a better way to get a good understanding
 of how different parts come together.
 
-### Problems Encountered
+### How to do it wrong
 
 To dive right in I downloaded Jekyll and created a new site. Then begun the hard part.
 How do I integrate Hyde? Hyde is itself built upon a set of foundation setup called
@@ -40,13 +40,15 @@ I decided to just head over to the [Hyde codebase][hydecode-url] and try to copy
 code tha seemed relevant. After a bit of back and forth and deleting what I thought
 was not needed/I didn't want on my blog I thought I was ready to go.
 
-The first problem encountered was that the blog would stubbornly not show any blog posts.
-
-<strong>Note to self:</strong> Code on config files is usually necessay,
-do not delete without checking the outcome.
+The major problem I encountered was that the blog would stubbornly not show any blog posts.
 
 Turns out I was missing the paginate gem (Jekyll engine is based on ruby) and also
 two necessary config items.
+
+After a lot of search, and feedback from Google I managed to get it working.
+
+<strong>Note to self:</strong> Code on config files is usually necessay,
+do not delete without checking the outcome.
 
 The next challenge encountered was how to integrate a custom domain name. GithubPages
 already provide the [username].github.io url for the page, where [username] is your
@@ -76,16 +78,18 @@ tsaprailis.com) to the internal URL that Github knows kostistsaprailis.github.io
 
 ### Is the hassle worth it?
 
-There are currently far easier ways (Wordpress, Medium etc) to start a blog,
-why go through all the hassle to make it from scratch?
+So enough with the rant, was it actually worth it?
 
-Well, the thing that drew me to Jekyll is that as a developer I'm always
+That's not a straightfoward answer. There are currently far easier ways to start a blog
+(Wordpress, Medium etc), why go through all the hassle to make it from scratch?
+
+Well, what drew me to Jekyll is that as a developer I'm always
 enjoying more building stuff myself. Having exposure to the underlying code is
-always a great strength that allows you to configure (and also break) a project.
+always a great strength that allows you to configure (and also break) a project,
+and also provide valuable knowledge.
 
 So take something apart, break it and then try to make it work. You will always be
-more motivated to make something work again and it will usually take you down a curious
-rabbit hole.
+more motivated to make it work again. Go break stuff!
 
 
 [githubpages-url]: https://pages.github.com/
