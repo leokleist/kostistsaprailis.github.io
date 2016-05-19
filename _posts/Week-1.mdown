@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "Natural Language Processing, week 1"
+date:   2016-05-21 19:33:42 +0300
+---
+
+### Regular Expressions in Practical NLP:
+
+An example is given how regexps are used in practice in real world case.
+A link to the open source code with many such examples can be found [here][tokenizer-github-url].
+
+
+### Word Tokenization
+
+
+
+
+[tokenizer-github-url]:https://github.com/stanfordnlp/CoreNLP/blob/master/src/edu/stanford/nlp/process/PTBLexer.flex
