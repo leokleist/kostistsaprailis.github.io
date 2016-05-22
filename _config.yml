@@ -28,5 +28,5 @@ highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM
-  auto_ids: true
+  hard_wrap: true
   syntax_highlighter: rouge
