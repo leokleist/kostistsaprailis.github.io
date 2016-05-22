@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Personal Notes on Natural Language Processing, week 1"
-date:   2016-05-22 20:03:00 +0300
+date:   2016-05-22 10:03:00 +0300
 ---
 
 * TOC
