@@ -12,7 +12,7 @@ email: kostis.tsaprailis@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Electrical & Computer Engineer, interested in more things than I can juggle.
 baseurl: / # the subpath of your site, e.g. /blog
-url:              http://tsaprailis.com
+url: http://tsaprailis.com
 twitter_username: ktsaprailis
 github_username:  kostistsaprailis
 linkedin_username: konstantinostsaprailis
@@ -24,3 +24,13 @@ paginate_path: "page:num"
 
 # Permalinks
 permalink:        pretty
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
