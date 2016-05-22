@@ -25,8 +25,8 @@ Using bash tools to analyse text. Useful programs:
 
 <strong>Issues with Tokenization:</strong>
 
-* How to handle punctuation (periods, dashes, apostrophes).
-* How to handle language specific punctuation e.g. French Le, L', l',
+* How to handle punctuation (periods, dashes, apostrophes).<br>
+* How to handle language specific punctuation e.g. French Le, L', l',<br>
 German/Chinese no space between words etc.
 
 <strong>Maximum Matching Word Segmentation Algorithm:</strong>
@@ -37,30 +37,30 @@ segment out the first word and continue similarly. Doesn't work well on english.
 ### Word Normalization
 The problem of transforming similar words to one with the "base" meaning.
 
-<strong>Normalization</strong>
+<strong>Normalization:</strong>
 Implicitly defining equivalence classes of terms. E.g. U.S.A. matching USA.
 There is also asymmetric expansion, which is when searching for the term "window"
 we might also want to search "windows", "Windows". However when searching for
 "Windows" we might refer to the OS and only be interested in "Windows".
 
-<strong>Case folding</strong>
+<strong>Case folding:</strong>
 In information retrieval applications we usually reduce all letters to lowercase
 for better matching. There are exceptions when we have mid-sentence upper case ones,
 which might refer to special words.
 In sentiment analysis case can be important.
 
-<strong>Lemmatization</strong>
+<strong>Lemmatization:</strong>
 Finding the correct dictionary headword form.
 We are usually reducing inflections or variants to the base form.
 E.g. am, are, is -> be
 car, cars, car's, cars' -> car
 
-<strong>Morphology</strong>
+<strong>Morphology:</strong>
 Stems: The core meaning-bearing units.
 Affixes: Bits and pieces that adhere to stems.
 Stemming: Removing affexes, reducing terms to Stems.
 
-<strong>Porter's stemming algorithm</strong>
+<strong>Porter's stemming algorithm:</strong>
 Step 1a: Remove plural-related affixes (sses -> ss, ies -> i, ss -> ss, s -> null)
 Step 1b: Remove verb related affixes ( (*vowel*)ing -> null, (*vowel*)ed -> null)
 Step 2: For long stems special rules (ational -> ate, izer -> ize, ator, ate)
@@ -69,7 +69,7 @@ Step 3: For longer stems more rules (al -> null, able -> null, ate -> null)
 ### Sentence Segmentation
 The problem of defining sentences.
 
-<strong>Classifier</strong>
+<strong>Classifier:</strong>
 "!", "?" can be unambiguous sentence endings.
 "."" is not, can be used in abbreviations and numbers.
 Easier implementation with decision trees (series of if-then-else rules).
@@ -80,7 +80,7 @@ with a "." is an end of sentence.
 ### Minimum Edit Distance
 The problem of defining word similarity
 
-<strong>Definition</strong>
+<strong>Definition:</strong>
 The minimum number of editing operations (insertions, deletions, substitutions)
 needed to transform one string to the other.
 Usually all operations have a cost of 1. In Levenshtein Distance substitutions cost 2.
@@ -89,13 +89,13 @@ on operations of words between the machine generated text and a human equivalent
 We difine table D(i,j) that contains the cost between X(1,i) and Y(1,j) where
 X(1,i) is the i first letters of string X and Y(1,j) the j first letters in string Y.
 
-<strong>How to calculate</strong>
+<strong>How to calculate:</strong>
 Dynamic programming to the rescue. We are combining solutions to subproblems to
 generate the solution to the whole problem. Levenshtein implementation:
 
 ![Levenshtein Distance](/assets/levenshtein-distance.png)
 
-<strong>Backtrace for Computing Alignments</strong>
+<strong>Backtrace for Computing Alignments:</strong>
 We can keep pointers in each cell to where we came from so we can retrace the steps
 taken. Thus we know which action was taken in each step to compute the minimum
 distance and we can get a "mapping" of the operations required.
@@ -106,12 +106,12 @@ are not exactly equal but some operations have a higher or lower chance of occur
 (such as in spelling correction where the word was mistyped etc).
 We keep del[x(i)], ins[y(j)] and sub[x(i),y(j)] tables with the extra costs per letter.
 
-<strong>Minimum Edit Distance in Computational Biology</strong>
+<strong>Minimum Edit Distance in Computational Biology:</strong>
 The [Needleman-Wunsch Algorithm][needleman-url] is an implementation used in CB where we have a common
 cost "-d" for insertions and deletions and "s" for substitutions.
 This can be used to find the minimum edit distance of a string within a possibly larger string.
 
-<strong>Local Alignment Problem</strong>
+<strong>Local Alignment Problem:</strong>
 Given two strings X, Y, find two substrings x', y' whose similarity is maximum.
 Implementation using the Smith-Waterman algorithm.
 
