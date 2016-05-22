@@ -9,7 +9,7 @@ date:   2016-05-22 10:03:00 +0300
 
 ### Regular Expressions
 
-<strong>Regular Expressions in Practical NLP:</strong><br />
+<strong>Regular Expressions in Practical NLP:</strong>
 An example is given on how regexps are used in practice in real world case related to NLP.
 A link to the open source code with many such examples can be found [here][tokenizer-github-url].
 
@@ -114,6 +114,8 @@ This can be used to find the minimum edit distance of a string within a possibly
 <strong>Local Alignment Problem:</strong>
 Given two strings X, Y, find two substrings x', y' whose similarity is maximum.
 Implementation using the Smith-Waterman algorithm.
+![Smith-Waterman algorithm](/assets/smith-waterman.png)
+
 
 [tokenizer-github-url]:https://github.com/stanfordnlp/CoreNLP/blob/master/src/edu/stanford/nlp/process/PTBLexer.flex
 [nlp-url]:https://www.coursera.org/course/nlp
