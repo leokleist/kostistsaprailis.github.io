@@ -23,6 +23,8 @@ Using bash tools to analyse text. Useful programs:
 * sort: Sorts alphanumerically
 * uniq: Groups and counts same words
 
+<!--excerpt-->
+
 <strong>Issues with Tokenization:</strong>
 
 * How to handle punctuation (periods, dashes, apostrophes).<br>

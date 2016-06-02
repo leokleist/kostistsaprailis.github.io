@@ -18,6 +18,8 @@ There are many great tutorials to get you started, one being an official
 the two and a second one, the more [analytical][jonathanmacglone-url] by
 Jonathan McGlone.
 
+<!--excerpt-->
+
 However having Jekyll on its own does not really help with making a blog that
 looks nice, especially if you're a developer like me who has no idea how to
 design anything better than a napkin.

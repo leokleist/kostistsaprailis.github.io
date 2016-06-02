@@ -30,3 +30,4 @@ kramdown:
   input: GFM
   hard_wrap: true
   syntax_highlighter: rouge
+excerpt_separator: "<!--excerpt-->"
