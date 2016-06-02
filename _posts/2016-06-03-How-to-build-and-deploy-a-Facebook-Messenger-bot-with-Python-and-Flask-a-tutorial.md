@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to build and deploy a Facebook Messenger bot with Python and Flask, a tutorial"
-date:   2016-06-03 02:19:00 +0300
+date:   2016-06-03 00:19:00 +0300
 ---
 
 This is my log of how I built a simple Facebook Messenger bot. The functionality is really simple, it's an echo bot that will just print back to the user what writes.
