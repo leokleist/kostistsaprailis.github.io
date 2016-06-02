@@ -4,11 +4,11 @@ title:  "How to build and deploy a Facebook Messenger bot with Python and Flask,
 date:   2016-06-03 00:19:00 +0300
 ---
 
-This is my log of how I built a simple Facebook Messenger bot. The functionality is really simple, it's an echo bot that will just print back to the user what writes.
+This is my log of how I built a simple Facebook Messenger bot. The functionality is really simple, it's an echo bot that will just print back to the user what they write.
 
-This is pretty similar to the equal of the Hello World example for servers, the echo server.
+This is something akin to the Hello World example for servers, the echo server.
 
-The goal of the project is not to build the best Messenger bot, but rather to get a feel for what would take to build a minimal bot and how everything comes together.
+The goal of the project is not to build the best Messenger bot, but rather to get a feel for what it takes to build a minimal bot and how everything comes together.
 
 <!--excerpt-->
 
@@ -19,26 +19,26 @@ The goal of the project is not to build the best Messenger bot, but rather to ge
 
 The tech stack that was used is:
 
-- [Heroku][heroku-url] for back end hosting. The free-tier is more than enough for a tutorial of this level. The echo bot will not require any sort of data persistence so a database was not used.
+- [Heroku][heroku-url] for back end hosting. The free-tier is more than enough for a tutorial of this level. The echo bot does not require any sort of data persistence so a database was not used.
 - [Python][python-url] was the language of choice. The version that was used is 2.7 however it can easily be ported to Python 3 with minor alterations.
 - [Flask][flask-url] as the web development framework. It's a very lightweight framework that's perfect for small scale projects/microservices.
-- Finally the [Git][git-url] version control system was used for code maintenance but also to deploy to Heroku.
-- Worth mentioning: [Virtualenv][virtualenv-url]. This python tool is used to create "spaces" clean of python libraries so you can only install the necessary requirements and minimize the app footprint.
+- Finally the [Git][git-url] version control system was used for code maintenance and to deploy to Heroku.
+- Worth mentioning: [Virtualenv][virtualenv-url]. This python tool is used to create "environments" clean of python libraries so you can only install the necessary requirements and minimize the app footprint.
 
 ### Bot Architecture
 
-Messenger bots are basically constituted by a server that responds to two types of requests:
+Messenger bots are constituted by a server that responds to two types of requests:
 
 - GET requests are being used for authentication. They are sent by Messenger with an authentication code that you register on FB.
-- POST requests are being used for the actual communication. The typical workflow in the bot that will be built is that Messenger will initiate the communication by sending the POST request with the data of the message sent by the user, we will handle it, send a POST request of our own and if that one is completed successfully (a 200 OK status is returned) we also respond with a 200 OK code to the initial Messenger request.
+- POST requests are being used for the actual communication. The typical workflow is that the bot will initiate the communication by sending the POST request with the data of the message sent by the user, we will handle it, send a POST request of our own back. If that one is completed successfully (a 200 OK status is returned) we also respond with a 200 OK code to the initial Messenger request.
 
-For the tutorial the app will be hosted on Heroku, which provides a nice and easy interface to deploy apps. As mentioned the free tier will suffice for this tutorial.
+For this tutorial the app will be hosted on Heroku, which provides a nice and easy interface to deploy apps. As mentioned the free tier will suffice for this tutorial.
 
 After the app has been deployed and is running, we'll create a Facebook app and link it to our app so that messenger knows where to send the requests that are meant for our bot.
 
 ### The Bot Server
 
-The basic server code was taken from the following [Chatbot project][chatbot-url] by Github user [hult (Magnus Hult)][hult-url], with a few modifications for the code to only echo messages and fix a couple bugs I came across. This is final version of the server code used:
+The basic server code was taken from the following [Chatbot project][chatbot-url] by Github user [hult (Magnus Hult)][hult-url], with a few modifications to the code to only echo messages and a couple bugfixes I came across. This is the final version of the server code:
 
 {% highlight python%}
 from flask import Flask, request
@@ -103,6 +103,7 @@ if __name__ == '__main__':
 {% endhighlight %}
 
 Let's break down the code. The first part is the imports that will be needed:
+
 {% highlight python%}
 from flask import Flask, request
 import json
@@ -123,8 +124,7 @@ def handle_verification():
     return 'Error, wrong validation token'
 {% endhighlight %}
 
-The verify_token that is being sent by Messenger will be declared by us when we create the Facebook app. We have to compare the one we have declared against
-itself so that another bot cannot verify as our service. Finally we return the "hub.challenge" back to Messenger.
+The verify_token object that is being sent by Messenger will be declared by us when we create the Facebook app. We have to validate the one we are being have against itself. Finally we return the "hub.challenge" back to Messenger.
 
 The function that handles the POST requests is a bit more interesting.
 
@@ -140,7 +140,7 @@ def handle_messages():
   return "ok"
 {% endhighlight %}
 
-After we receive the massage payload, we use function messaging_events to break it down and extract the sender user id and the actual message sent generating an python iterator that we can loop over. Notice that in each request sent by Messenger it is possible to have more than one messages.
+When called we grab the massage payload, use function messaging_events to break it down and extract the sender user id and the actual message sent, generating a python iterator that we can loop over. Notice that in each request sent by Messenger it is possible to have more than one messages.
 
 {% highlight python%}
 def messaging_events(payload):
@@ -157,9 +157,9 @@ def messaging_events(payload):
 {% endhighlight %}
 
 
-While iterating over each message we call the send_message function and we perform the POST request back to Messnger using the Facebook Graph messages API. During this time we still have not responded to the original Messegner request which we are blocking. This can lead to timeout and 5XX errors.
+While iterating over each message we call the send_message function and we perform the POST request back to Messnger using the Facebook Graph messages API. During this time we still have not responded to the original Messenger request which we are blocking. This can lead to timeouts and 5XX errors.
 
-Based on the above one major bug I came across was that when the user was sending emojis for which, to my surprise up to that point, are actual unicode ids, Python was miss-encoding them and so was sending back garbage.
+The above was spotted during an outage due to a bug I came across, which was occurred when the user was sending emojis which are actual unicode ids,  however Python was miss-encoding. We ended up sending back garbage.
 
 This POST request back to Messenger would never finish, and that in turn would cause 5XX status codes to be returned to the original request, rendering the service unusable.
 
@@ -189,29 +189,16 @@ Deploy the app.
 
 Sure, but how?
 
-I have deployed apps before to Heroku (mainly Rails) however I was always
-following a tutorial of some sort, so the configuration has already been
-created. In this case though I had to start from scratch.
+I have deployed apps before to Heroku (mainly Rails) however I was always following a tutorial of some sort, so the configuration has already been created. In this case though I had to start from scratch.
 
-Fortunately it was the official [Heroku documentation][heroku-doc-url]
-to the rescue. The article explains nicely the bare minimum required for
-running an app.
+Fortunately it was the official [Heroku documentation][heroku-doc-url] to the rescue. The article explains nicely the bare minimum required for running an app.
 
-Long story short, what we need besides our code are two files. The first
-file is the "requirements.txt" file which is a list of of the library
-dependencies required to run the application. I'll explain in a while
-how to generate this.
-The second file required is the "Procfile". This file is there to tell
-Heroku how to run our service. Again the bare minimum needed for this file
-is the following:
+Long story short, what we need besides our code are two files. The first  file is the "requirements.txt" file which is a list of of the library dependencies required to run the application.
+The second file required is the "Procfile". This file is there to inform the Heroku how to run our service. Again the bare minimum needed for this file is the following:
 ```
 web: gunicorn echoserver:app
 ```
-The way this will be interpreted by heroku is that our app is started by
-running the echoserver.py file and the app will be using gunicorn as
-the web server.
-The reason we are using an additional webserver is performance related
-and is explained in the above Heroku documentation:
+The way this will be interpreted by heroku is that our app is started by running the echoserver.py file and the app will be using gunicorn as the web server. The reason we are using an additional webserver is performance related and is explained in the above Heroku documentation:
 
 > Web applications that process incoming HTTP requests concurrently make much more efficient use of dyno resources than web applications that only process one request at a time. Because of this, we recommend using web servers that support concurrent request processing whenever developing and running production services.
 The Django and Flask web frameworks feature convenient built-in web servers, but these blocking servers only process a single request at a time. If you deploy with one of these servers on Heroku, your dyno resources will be underutilized and your application will feel unresponsive.
@@ -219,7 +206,7 @@ Gunicorn is a pure-Python HTTP server for WSGI applications. It allows you to ru
 
 Going back to our "requirements.txt" file let's see how it binds with the Virtualenv tool that was mentioned.
 
-At anytime, your developement machine may have a number of python libraries installed. We deploying applications you don't want to have these libraries loaded as it makes it hard to make out which ones you actually use.
+At anytime, your developement machine may have a number of python libraries installed. When deploying applications you don't want to have these libraries loaded as it makes it hard to make out which ones you actually use.
 
 What Virtualenv does is create a new blank virtual enviroment so that you can only install the libraries that your app requires.
 
@@ -243,10 +230,10 @@ six==1.10.0
 virtualenv==15.0.1
 Werkzeug==0.11.10
 {% endhighlight %}
-Note: The pip tool should be installed on your machine along with Python.
+Note: The pip tool should already be installed on your machine along with Python.
 If not check the [official site][pip-url] for how to install it.
 
-Now let's use Virtualenv to create a new blank space. First we create a new folder for our project, and change dir into it:
+Now let's use Virtualenv to create a new blank enviroment. First we create a new folder for our project, and change dir into it:
 
 {% highlight bash %}
 kostis@KostisMBP projects $ mkdir echoserver
@@ -263,7 +250,7 @@ kostis@KostisMBP echoserver $ source echobot/bin/activate
 (echobot) kostis@KostisMBP echoserver $
 {% endhighlight %}
 
-We can start installing the libraries required. The ones we'll need are flask, gunicorn, and requests then we create the requirements.txt file:
+We can start installing the libraries required. The ones we'll need are flask, gunicorn, and requests and with them installed we create the requirements.txt file:
 {% highlight bash %}
 (echobot) kostis@KostisMBP echoserver $ pip install flask
 (echobot) kostis@KostisMBP echoserver $ pip install gunicorn
@@ -286,7 +273,7 @@ After all the above have been run, we create the echoserver.py file with the pyt
 Procfile     echobot     echoserver.py   requirements.txt
 {% endhighlight %}
 
-We are now ready to upload to Heroku. We need two do two things. The first is to install the Heroku toolbet if it's not already installed on your system (go to [Heroku][toolbelt-url] for details). The second is to create a new Heroku app through the [web interface][heroku-app-url].
+We are now ready to upload to Heroku. We need to do two things. The first is to install the Heroku toolbet if it's not already installed on your system (go to [Heroku][toolbelt-url] for details). The second is to create a new Heroku app through the [web interface][heroku-app-url].
 Click on the big plus sign on the top right and select "Create new app".
 ![Create Heroku App](/assets/create_app.png)
 
@@ -308,18 +295,18 @@ remote:        https://<myappname>.herokuapp.com/ deployed to Heroku
 (echobot) kostis@KostisMBP echoserver (master) $ heroku config:set WEB_CONCURRENCY=3
 {% endhighlight %}
 
-As per above, after you push your changes to Heroku you should have the URL to publically access your newly created app. Save that URL cause it will be needed in the next step.
+As per above, after you push your changes to Heroku you should be provided with the URL to publically access your newly created app. Save that URL because it will be needed in the next step.
 
 ### Creating the Facebook App
 
-The last step to getting the bot working is to Create the Facebook app that will connect to our service. Facebook typically requires every app to also have a relevant page so start by [creating one][create-page-url].
-Next got the the [Facebook developers page][facebook-developers-url] click on the My App button on the top right and select "Add a New App". Don't pick one of the suggestions but instead click "basic setup". Fill out the required field and click "Create App Id". You should now be redirected to the new app page.
+The last step to getting the bot working is to create the Facebook app that will connect to our service. Facebook typically requires every app to also have a relevant page so start by [creating one][create-page-url].
+Next go to the [Facebook developers page][facebook-developers-url] click on the "My Apps" button on the top right and select "Add a New App". Don't pick one of the suggestions but instead click "basic setup". Fill out the required field and click "Create App Id". You should now be redirected to the new app page.
 
 ![Adding Messenger App](/assets/facebook_app.png)
-Under "Products", click "+ Add Product" and under "Messenger" click "Get Started". Follow the steps to set up messenger and once it's finished you're ready to setup your webhooks. Click on the "Setup Webhooks" button and add the Heroku app URL (the one you saved earlier). Under verify token add 'my_voice_is_my_password_verify_me'. You can add anything you want but whatever you add here should also be changed in the if check in the handle_verification function of the code. Also tick the "messages" option.
+Under "Products", click "+ Add Product" then under "Messenger" click "Get Started". Follow the steps to set up Messenger and once it's finished you're ready to setup your webhooks. Webhooks are simply a name for the url that your service is using. Click on the "Setup Webhooks" button and add the Heroku app URL (the one you saved earlier). Under verify token add 'my_voice_is_my_password_verify_me'. You can add anything you want but whatever you add here should also be changed in the if check in the handle_verification function of the code. Also tick the "messages" option.
 
 ![webhooks](/assets/webhooks.png)
-Click "Verify and Save" and you should be done. Facebook should use the Heroku app and verify it. If it's not working try running:
+Click "Verify and Save" and you should be done. Facebook should access the Heroku app and verify it. If it's not working try running:
 {% highlight bash %}
 (echobot) kostis@KostisMBP heroku logs -t
 {% endhighlight %}
