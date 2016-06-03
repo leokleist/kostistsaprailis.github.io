@@ -334,6 +334,8 @@ Now go to your page and initiate a conversation:
 
 Success! The bot echoes back!
 
+Note: Until you request your app to be reviewed for Messenger you will be the only one the bot will be responding to. If you want other to try it, go to the [Facebook developers page][facebook-developers-url], select your app, the Roles and add the users you want as Testers.
+
 ### Conclusion
 
 This has been a very informative project for me, hope it points you to the right direction to get started. The [official Facebook guide][facebook-guide-url] has a ton of resource to move forward.
