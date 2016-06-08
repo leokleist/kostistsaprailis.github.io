@@ -340,6 +340,8 @@ Note: Until you request your app to be reviewed for Messenger you will be the on
 
 This has been a very informative project for me, hope it points you to the right direction to get started. The [official Facebook guide][facebook-guide-url] has a ton of resource to move forward.
 
+You can find the code for this project on [github][github-project-url].
+
 If you have any remarks, bugs, suggestions etc feel free to contact me.
 
 
@@ -358,4 +360,5 @@ If you have any remarks, bugs, suggestions etc feel free to contact me.
 [heroku-app-url]: https://dashboard.heroku.com/apps
 [facebook-guide-url]:https://developers.facebook.com/docs/messenger-platform/implementation
 [facebook-developers-url]:https://developers.facebook.com/
+[github-project-url]:https://github.com/kostistsaprailis/messenger-bot-tutorial
 [create-page-url]:https://www.facebook.com/pages/create
