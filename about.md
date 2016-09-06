@@ -1,7 +1,6 @@
 ---
-layout: default
+layout: posts
 title: About
-permalink: /about/
 ---
 
 Hi there!

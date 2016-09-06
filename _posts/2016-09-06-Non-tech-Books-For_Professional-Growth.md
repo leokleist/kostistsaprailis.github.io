@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A list Of non-tech books for professional growth crowdsourced by Hacker News"
+title:  "A list of non-tech books for professional growth crowdsourced by Hacker News"
 date:   2016-09-06 23:00:00 +0300
 ---
 
