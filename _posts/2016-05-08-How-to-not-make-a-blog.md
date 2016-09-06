@@ -4,6 +4,7 @@ title:  "How to not make a blog, or how I stopped worrying and love breaking stu
 date:   2016-05-09 19:33:42 +0300
 ---
 
+---
 <!--excerpt-->
 
 ### Hello there!

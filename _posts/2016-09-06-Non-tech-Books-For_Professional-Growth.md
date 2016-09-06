@@ -4,6 +4,7 @@ title:  "A List Of Non-tech Books For Professional Growth Crowdsourced by Hacker
 date:   2016-09-06 23:00:00 +0300
 ---
 
+---
 <!--excerpt-->
 
 A few days ago a submitted a [question](https://news.ycombinator.com/item?id=12415621) to Hacker News regarding which books have helped people most professionally besides the usual tech ones.
