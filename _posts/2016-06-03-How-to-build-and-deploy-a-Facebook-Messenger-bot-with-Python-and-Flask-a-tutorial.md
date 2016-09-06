@@ -12,6 +12,8 @@ The goal of the project is not to build the best Messenger bot, but rather to ge
 
 <!--excerpt-->
 
+<h2><strong>Contents</strong></h2>
+
 * TOC
 {:toc}
 

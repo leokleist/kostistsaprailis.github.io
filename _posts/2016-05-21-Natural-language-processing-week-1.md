@@ -4,6 +4,8 @@ title:  "Personal Notes on Natural Language Processing, week 1"
 date:   2016-05-22 10:03:00 +0300
 ---
 
+<h2><strong>Contents</strong></h2>
+
 * TOC
 {:toc}
 
