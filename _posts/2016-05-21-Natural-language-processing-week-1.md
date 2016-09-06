@@ -4,6 +4,8 @@ title:  "Personal Notes on Natural Language Processing, week 1"
 date:   2016-05-22 10:03:00 +0300
 ---
 
+<!--excerpt-->
+
 <h2><strong>Contents</strong></h2>
 
 * TOC
@@ -24,8 +26,6 @@ Using bash tools to analyse text. Useful programs:
 * tr: Translates text, can perform substitutions
 * sort: Sorts alphanumerically
 * uniq: Groups and counts same words
-
-<!--excerpt-->
 
 <strong>Issues with Tokenization:</strong>
 

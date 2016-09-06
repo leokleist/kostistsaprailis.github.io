@@ -4,6 +4,8 @@ title:  "How to not make a blog, or how I stopped worrying and love breaking stu
 date:   2016-05-09 19:33:42 +0300
 ---
 
+<!--excerpt-->
+
 ### Hello there!
 
 These are my thoughts on trying to build a blog with the latest "cool" thing called
@@ -17,8 +19,6 @@ There are many great tutorials to get you started, one being an official
 [Jekyll Guide][jekyllgithub-url] which gives an overview of how to integrate
 the two and a second one, the more [analytical][jonathanmacglone-url] by
 Jonathan McGlone.
-
-<!--excerpt-->
 
 However having Jekyll on its own does not really help with making a blog that
 looks nice, especially if you're a developer like me who has no idea how to
