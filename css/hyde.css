@@ -88,6 +88,7 @@ html {
   margin-bottom: 1rem;
 }
 .sidebar-nav-item {
+  font-size: 1.5rem;
   display: block;
   line-height: 1.75;
 }
