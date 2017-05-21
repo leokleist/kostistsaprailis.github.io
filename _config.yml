@@ -13,7 +13,7 @@ description: > # this means to ignore newlines until "baseurl:"
   CS Student @ ETH Zurich
 baseurl: / # the subpath of your site, e.g. /blog
 github_username:  leokleist
-linkedin_username: leonard von kleist
+linkedin_username: leonard-von-kleist
 
 # Pagination
 gems: [jekyll-paginate]
