@@ -6,16 +6,15 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Kostis Tsaprailis
+title: Leo von Kleist
 tagline: Blog
-email: kostis.tsaprailis@gmail.com
+email: leonard.vkleist@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Electrical & Computer Engineer, Data Science Student, Wannabe Entrepreneur
+  CS Student @ ETH Zurich
 baseurl: / # the subpath of your site, e.g. /blog
 url: http://tsaprailis.com
-twitter_username: ktsaprailis
-github_username:  kostistsaprailis
-linkedin_username: konstantinostsaprailis
+github_username:  leokleist
+linkedin_username: leonard von kleist
 
 # Pagination
 gems: [jekyll-paginate]
